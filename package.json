@@ -1,0 +1,17 @@
+{
+ "name": "inbox-outbox",
+ "version": "1.0.0",
+ "main": "dist/index.js",
+ "scripts": {
+   "build": "tsc"
+ },
+ "dependencies": {
+   "@nestjs/common": "^8.0.0",
+   "@nestjs/mongoose": "^8.0.0",
+   "mongoose": "^6.0.0",
+   "@nestjs/config": "^1.0.0"
+ },
+ "devDependencies": {
+   "typescript": "^4.0.0"
+ }
+}
