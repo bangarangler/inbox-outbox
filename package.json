@@ -3,15 +3,16 @@
  "version": "1.0.0",
  "main": "dist/index.js",
  "scripts": {
-   "build": "tsc"
+  "build": "tsc"
  },
  "dependencies": {
-   "@nestjs/common": "^8.0.0",
-   "@nestjs/mongoose": "^8.0.0",
-   "mongoose": "^6.0.0",
-   "@nestjs/config": "^1.0.0"
+  "@nestjs/common": "^11.0.11",
+  "@nestjs/config": "^4.0.1",
+  "@nestjs/core": "^11.0.11",
+  "@nestjs/mongoose": "^11.0.1",
+  "mongoose": "^6.13.8"
  },
  "devDependencies": {
-   "typescript": "^4.0.0"
+  "typescript": "^4.0.0"
  }
 }

@@ -2,7 +2,6 @@ import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Connection, Types } from 'mongoose';
 import { ConfigService } from '@nestjs/config';
-import * as path from 'path';
 
 interface DatabaseServiceConfig {
   database: string;
@@ -19,7 +18,7 @@ export class DatabaseService implements OnModuleInit {
   private readonly deadLetterCollectionName: string;
   private readonly failedMessagesCollectionName: string;
   private readonly reshapedCollectionName: string;
-  private aggregationPipeline: (doc: any) => any[];
+  private aggregationPipeline: (doc: any) => any[] = () => [];
 
   constructor(
     @InjectConnection() private readonly connection: Connection,
