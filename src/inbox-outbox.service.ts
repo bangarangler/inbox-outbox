@@ -107,7 +107,7 @@ export class DatabaseService implements OnModuleInit {
 
         await this.updateDocumentStatus(inboxCollection, [doc], 'processed');
         this.logger.log(`Message ${doc._id} successfully processed.`);
-      } catch (error) {
+      } catch (error: any) {
         this.logger.error(`Processing failed for ${doc._id}: ${error.message}`);
         failedMessages.push({ ...doc, retries: doc.retries !== undefined ? doc.retries : 0 });
       }
