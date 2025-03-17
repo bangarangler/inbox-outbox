@@ -3,15 +3,15 @@ import { InjectConnection } from '@nestjs/mongoose';
 import { Connection, Types } from 'mongoose';
 import { ConfigService } from '@nestjs/config';
 
-interface DatabaseServiceConfig {
+interface InboxOutboxConfig {
   database: string;
   collection: string;
   aggregation: (doc: any) => any[];
 }
 
 @Injectable()
-export class DatabaseService implements OnModuleInit {
-  private readonly logger = new Logger(DatabaseService.name);
+export class InboxOutboxService implements OnModuleInit {
+  private readonly logger = new Logger(InboxOutboxService.name);
   private readonly maxRetries: number = 3; // Default: 3 retries
   private readonly inboxCollectionName: string;
   private readonly outboxCollectionName: string;
@@ -37,7 +37,7 @@ export class DatabaseService implements OnModuleInit {
     this.startRetryLoop(); // Start retry loop on init
   }
 
-  initialize(config: DatabaseServiceConfig) {
+  initialize(config: InboxOutboxConfig) {
     this.aggregationPipeline = config.aggregation;
   }
 

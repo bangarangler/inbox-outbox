@@ -1,12 +1,12 @@
 import { OnModuleInit } from '@nestjs/common';
 import { Connection } from 'mongoose';
 import { ConfigService } from '@nestjs/config';
-interface DatabaseServiceConfig {
+interface InboxOutboxConfig {
     database: string;
     collection: string;
     aggregation: (doc: any) => any[];
 }
-export declare class DatabaseService implements OnModuleInit {
+export declare class InboxOutboxService implements OnModuleInit {
     private readonly connection;
     private readonly configService;
     private readonly logger;
@@ -19,7 +19,7 @@ export declare class DatabaseService implements OnModuleInit {
     private aggregationPipeline;
     constructor(connection: Connection, configService: ConfigService);
     onModuleInit(): Promise<void>;
-    initialize(config: DatabaseServiceConfig): void;
+    initialize(config: InboxOutboxConfig): void;
     private getCollection;
     private watchInbox;
     addToOutbox(message: string): Promise<void>;

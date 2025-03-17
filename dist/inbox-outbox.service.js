@@ -20,18 +20,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var DatabaseService_1;
+var InboxOutboxService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DatabaseService = void 0;
+exports.InboxOutboxService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
 const config_1 = require("@nestjs/config");
-let DatabaseService = DatabaseService_1 = class DatabaseService {
+let InboxOutboxService = InboxOutboxService_1 = class InboxOutboxService {
     constructor(connection, configService) {
         this.connection = connection;
         this.configService = configService;
-        this.logger = new common_1.Logger(DatabaseService_1.name);
+        this.logger = new common_1.Logger(InboxOutboxService_1.name);
         this.maxRetries = 3; // Default: 3 retries
         this.aggregationPipeline = () => [];
         const env = this.configService.get('NODE_ENV');
@@ -186,11 +186,11 @@ let DatabaseService = DatabaseService_1 = class DatabaseService {
         });
     }
 };
-DatabaseService = DatabaseService_1 = __decorate([
+InboxOutboxService = InboxOutboxService_1 = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectConnection)()),
     __metadata("design:paramtypes", [mongoose_2.Connection,
         config_1.ConfigService])
-], DatabaseService);
-exports.DatabaseService = DatabaseService;
+], InboxOutboxService);
+exports.InboxOutboxService = InboxOutboxService;
 //# sourceMappingURL=inbox-outbox.service.js.map
